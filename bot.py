@@ -20,11 +20,9 @@ def get_inline_keyboard(selected_buttons: list) -> InlineKeyboardMarkup:
     keyboard_buttons = []
     
     for btn_text in DEFAULT_BUTTONS:
-        # Если кнопка уже была нажата, добавляем к ней галочку
         display_text = f"✅ {btn_text}" if btn_text in selected_buttons else btn_text
         keyboard_buttons.append(InlineKeyboardButton(text=display_text, callback_data=btn_text))
     
-    # Группируем кнопки по 2 в ряд
     inline_keyboard = [
         [keyboard_buttons[0], keyboard_buttons[1]],
         [keyboard_buttons[2], keyboard_buttons[3]]
